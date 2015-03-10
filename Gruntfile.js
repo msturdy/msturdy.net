@@ -10,7 +10,9 @@ module.exports = function(grunt) {
         },
         my_target: {
           files: {
-            'public/js/app.min.js': ['javascript/app.js'],
+            'public/js/app.min.js': ['javascript/vendor/events.js',
+                                     'javascript/screen.js',
+                                     'javascript/app.js' ],
           }
         }
       },
@@ -20,13 +22,10 @@ module.exports = function(grunt) {
       },
 
       sass: {
-        options: {
-          includePaths: ['styles/bower_components/foundation/scss']
-        },
         dist: {
-          options: {
-            outputStyle: 'compressed'
-          },
+          // options: {
+          //   outputStyle: 'compressed'
+          // },
           files: {
             'public/css/styles.css': 'styles/scss/app.scss'
           }        
@@ -34,7 +33,7 @@ module.exports = function(grunt) {
       },
 
       watch: {
-        files: ['javascript/*.js', 'Gruntfile.js'],
+        files: ['javascript/*.js', 'Gruntfile.js', 'styles/scss/*'],
         tasks: ['jshint', 'uglify', 'sass'] 
       },
 

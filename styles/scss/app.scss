@@ -1,40 +1,106 @@
-@import "settings";
-@import "foundation";
+@import 'mixins';
 
-// Or selectively include components
-// @import
-//   "foundation/components/accordion",
-//   "foundation/components/alert-boxes",
-//   "foundation/components/block-grid",
-//   "foundation/components/breadcrumbs",
-//   "foundation/components/button-groups",
-//   "foundation/components/buttons",
-//   "foundation/components/clearing",
-//   "foundation/components/dropdown",
-//   "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
-//   "foundation/components/forms",
-//   "foundation/components/grid",
-//   "foundation/components/inline-lists",
-//   "foundation/components/joyride",
-//   "foundation/components/keystrokes",
-//   "foundation/components/labels",
-//   "foundation/components/magellan",
-//   "foundation/components/orbit",
-//   "foundation/components/pagination",
-//   "foundation/components/panels",
-//   "foundation/components/pricing-tables",
-//   "foundation/components/progress-bars",
-//   "foundation/components/reveal",
-//   "foundation/components/side-nav",
-//   "foundation/components/split-buttons",
-//   "foundation/components/sub-nav",
-//   "foundation/components/switches",
-//   "foundation/components/tables",
-//   "foundation/components/tabs",
-//   "foundation/components/thumbs",
-//   "foundation/components/tooltips",
-//   "foundation/components/top-bar",
-//   "foundation/components/type",
-//   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
+$footer-height: 50px;
+$topbar-height: 100px;
+$page-width: 1000px;
+
+$text-colour: #181818;
+$grey: #f1f1f1;
+
+.right {
+    float: right;
+}
+
+.text-right {
+    text-align: right;
+}
+
+body {
+    text-align: justify;
+    color: $text-colour;
+    font-family: arial;
+    max-width: 100%;
+    font-size: 100%;    
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: $grey;
+    height: $topbar-height;
+    position: absolute;
+    width: 100%;
+    top: 0;
+
+    h1 a {
+        text-decoration: none;
+        color: darken($grey, 50%);
+    }
+
+    h1 a:visited {
+        color: darken($grey, 50%);
+    }
+
+    div {
+        max-width: $page-width;
+        margin: 0 auto;
+    }
+
+    .intro {
+        opacity: 0.7;
+    }
+}
+
+footer {
+    background-color: $grey;
+    height: $footer-height;
+    padding-bottom: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+    @include transition(opacity, 0.5s);
+
+    div {
+        max-width: $page-width;
+        margin: 10px auto;
+    }
+
+    .contact-links a {
+        display: inline-block;
+        margin-left: 25px;
+        line-height: 3rem;
+        img {
+            max-height: $footer-height - 20px;
+            @include transition(height, 0.25s);
+
+            &:hover {
+                @include transform(scale(1.2));
+            }
+        }
+    }
+
+    .copyright {
+        font-size: 0.9rem;
+        font-family: monospace;
+        color: darken($grey, 50%);
+        display: inline-block;
+    }
+}
+
+section.body {
+    padding-top: 10px;
+    max-width: $page-width;
+    margin: $topbar-height auto 0;
+}
+
+.spinner {  
+    margin-right: 5px;
+    display: block;
+    float: left;
+
+    &:hover {
+        @include animation(rotate, 1s, infinite, linear);
+    }
+}

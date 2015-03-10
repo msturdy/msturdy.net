@@ -1,0 +1,70 @@
+
+
+@mixin transition($property, $duration, $timing-function:ease, $delay:0) {
+    -webkit-transition: $property, $duration, $timing-function, $delay;
+       -moz-transition: $property, $duration, $timing-function, $delay;
+        -ms-transition: $property, $duration, $timing-function, $delay;
+            transition: $property, $duration, $timing-function, $delay;
+}
+
+@mixin transform($args...) {
+    -webkit-transform: $args;
+       -moz-transform: $args;
+        -ms-transform: $args;
+            transform: $args;
+}
+
+
+@mixin keyframe ($animation_name) {
+    @-webkit-keyframes $animation_name {
+        @content;
+    }
+ 
+    @-moz-keyframes $animation_name {
+        @content;
+    }
+ 
+    @-o-keyframes $animation_name {
+        @content;
+    }
+ 
+    @keyframes $animation_name {
+        @content;
+    }
+}
+
+@include keyframe(rotate) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+  100% {
+    @include transform(rotate(360deg));
+  }
+}
+
+
+@mixin animation($name, $duration, $iteration-count, $timing-function) {
+    -webkit-animation-duration: $duration;
+       -moz-animation-duration: $duration;
+            animation-duration: $duration;
+    -webkit-animation-fill-mode: both;
+       -moz-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-name: $name;
+       -moz-animation-name: $name;
+            animation-name: $name;    
+    -webkit-animation-timing-function: $timing-function;
+       -moz-animation-timing-function: $timing-function;
+            animation-timing-function: $timing-function;
+    -webkit-animation-iteration-count: $iteration-count;
+       -moz-animation-iteration-count: $iteration-count;
+            animation-iteration-count: $iteration-count;
+
+}
+
+@mixin transform-origin($args...) {
+  -webkit-transform-origin: $args;
+     -moz-transform-origin: $args;
+      -ms-transform-origin: $args;
+          transform-origin: $args;
+}
