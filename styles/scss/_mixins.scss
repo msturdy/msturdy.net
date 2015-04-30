@@ -1,10 +1,10 @@
 
 
-@mixin transition($property, $duration, $timing-function:ease, $delay:0) {
-    -webkit-transition: $property, $duration, $timing-function, $delay;
-       -moz-transition: $property, $duration, $timing-function, $delay;
-        -ms-transition: $property, $duration, $timing-function, $delay;
-            transition: $property, $duration, $timing-function, $delay;
+@mixin transition($property, $duration, $timing-function:ease) {
+    -webkit-transition: $property, $duration, $timing-function;
+       -moz-transition: $property, $duration, $timing-function;
+        -ms-transition: $property, $duration, $timing-function;
+            transition: $property, $duration, $timing-function;
 }
 
 @mixin transform($args...) {
@@ -39,6 +39,18 @@
   }
   100% {
     @include transform(rotate(360deg));
+  }
+}
+
+@include keyframe(pulse-text) {
+  0% {
+    font-size: 100%;
+  }
+  50% {
+    font-size: 101%;
+  }
+  100% {
+    font-size: 100%;
   }
 }
 

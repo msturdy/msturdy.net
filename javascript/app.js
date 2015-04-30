@@ -6,12 +6,8 @@ var handle_scroll = function() {
 
         footer = document.querySelector('footer');
 
-    // page top
-    if (scroll_top < 10) {
-        footer.style.opacity = 1;
-    }
-    // page bottom
-    else if (page_height - scroll_btm < 10) {
+    // page top || page bottom
+    if ( scroll_top < 20 || page_height - scroll_btm < 20 ) {
         footer.style.opacity = 1;
     }
     // page middle
@@ -20,4 +16,4 @@ var handle_scroll = function() {
     }
 };
 
-addEvent(window, 'scroll', handle_scroll);
+addEvent( window, 'scroll', handle_scroll );

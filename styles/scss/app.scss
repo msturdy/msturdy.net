@@ -1,8 +1,11 @@
 @import 'mixins';
 
 $footer-height: 50px;
-$topbar-height: 100px;
-$page-width: 1000px;
+$topbar-height: 150px;
+$page-width-large: 900px;
+$page-width-medium: 100%;
+$page-width-small: 100%;
+$default-font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
 
 $text-colour: #181818;
 $grey: #f1f1f1;
@@ -18,7 +21,7 @@ $grey: #f1f1f1;
 body {
     text-align: justify;
     color: $text-colour;
-    font-family: arial;
+    font-family: $default-font-family   ;
     max-width: 100%;
     font-size: 100%;    
     padding: 0;
@@ -27,6 +30,10 @@ body {
 
 header {
     background-color: $grey;
+    background-image: url(/img/background-header.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
     height: $topbar-height;
     position: absolute;
     width: 100%;
@@ -34,21 +41,42 @@ header {
 
     h1 a {
         text-decoration: none;
-        color: darken($grey, 50%);
-    }
+        color: lighten($grey, 25%);
 
-    h1 a:visited {
-        color: darken($grey, 50%);
+        &:visited {
+            color: lighten($grey, 25%);
+
+        }
+        &:hover {
+            color: $grey;
+            @include animation(pulse-text, 0.5s, 1, ease);
+        }
     }
 
     div {
-        max-width: $page-width;
+        max-width: $page-width-large;
         margin: 0 auto;
     }
 
     .intro {
-        opacity: 0.7;
+        opacity: 0.8;
+        color: lighten($grey, 10%);
+
+        .hidden {
+            color: lighten($grey, 10%);
+            display: none;
+            opacity: 0.8;
+            letter-spacing: 0;
+        }
+
+        &:hover .hidden {
+            display: inline-block;
+        }
     }
+}
+
+p {
+    line-height: 1.4rem;
 }
 
 footer {
@@ -63,7 +91,7 @@ footer {
     @include transition(opacity, 0.5s);
 
     div {
-        max-width: $page-width;
+        max-width: $page-width-large;
         margin: 10px auto;
     }
 
@@ -86,21 +114,41 @@ footer {
         font-family: monospace;
         color: darken($grey, 50%);
         display: inline-block;
+
+        &:hover .spinner {
+            @include animation(rotate, 1s, infinite, linear);
+        }
+    }
+
+    .spinner {  
+        margin-right: 5px;
+        display: block;
+        float: left;
     }
 }
 
 section.body {
     padding-top: 10px;
-    max-width: $page-width;
+    padding-bottom: $footer-height + 20;
+    max-width: $page-width-large;
     margin: $topbar-height auto 0;
 }
 
-.spinner {  
-    margin-right: 5px;
-    display: block;
-    float: left;
 
-    &:hover {
-        @include animation(rotate, 1s, infinite, linear);
+@media (min-width: 320px) and (max-width: 900px) {
+
+    footer div, section.body, header div {
+        max-width: $page-width-medium;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+
+    footer div, section.body, header div {
+        max-width: $page-width-small;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 }
