@@ -4,7 +4,7 @@ var handle_scroll = function() {
         scroll_btm  = scroll_top + get_viewport_height(),
         page_height = get_page_height(),
 
-        footer = document.querySelector('footer');
+        footer = document.querySelector('footer.site-footer');
 
     // page top || page bottom
     if ( scroll_top < 20 || page_height - scroll_btm < 20 ) {
