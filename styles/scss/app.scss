@@ -1,7 +1,7 @@
 @import 'mixins';
 
 $footer-height: 50px;
-$topbar-height: 150px;
+$topbar-height: 80px;
 $page-width-large: 900px;
 $page-width-medium: 100%;
 $page-width-small: 100%;
@@ -14,77 +14,83 @@ $grey: #f1f1f1;
     float: right;
 }
 
+.left {
+    float: left;
+}
+
 .text-right {
     text-align: right;
+}
+
+.text-left {
+    text-align: left;
 }
 
 body {
     text-align: justify;
     color: $text-colour;
-    font-family: $default-font-family   ;
+    font-family: $default-font-family;
     max-width: 100%;
     font-size: 100%;    
     padding: 0;
     margin: 0;
 }
 
+p {
+    line-height: 1.4rem;
+}
+
 header.site-header {
-    background-color: $grey;
-    background-image: url(/img/background-header.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: contain;
     height: $topbar-height;
     position: absolute;
     width: 100%;
     top: 0;
+    background-color: $grey;
+    background-image: url(/img/background-header.jpg);
+    background-position: right;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     @include transition(height, 0.25s);
 
-    h1 a {
-        text-decoration: none;
-        color: lighten($grey, 25%);
+    div.header-contents {
 
-        &:visited {
+        h1 a {
+            text-decoration: none;
             color: lighten($grey, 25%);
 
+            &:visited {
+                color: lighten($grey, 25%);
+
+            }
+            &:hover {
+                color: $grey;
+                @include animation(pulse-text, 0.5s, 1, ease);
+            }
         }
-        &:hover {
-            color: $grey;
-            @include animation(pulse-text, 0.5s, 1, ease);
-        }
-    }
 
-    div {
-        max-width: $page-width-large;
-        margin: 0 auto;
-    }
-
-    .intro {
-        opacity: 0.8;
-        color: lighten($grey, 10%);
-
-        .hidden {
-            color: lighten($grey, 10%);
+        .intro {
             display: none;
-            opacity: 0.8;
-            letter-spacing: 0;
-        }
 
+        }
+        .reveal:hover .hidden {
+            display: inline-block;
+        }
     }
-    .reveal:hover .hidden {
-        display: inline-block;
-    }
+
 }
 
-p {
-    line-height: 1.4rem;
+div.contents {
+    max-width: $page-width-large;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 footer.site-footer {
     background-color: $grey;
     height: $footer-height;
-    padding-bottom: 10px;
+    line-height: $footer-height;
     position: fixed;
     width: 100%;
     bottom: 0;
@@ -92,15 +98,15 @@ footer.site-footer {
 
     @include transition(opacity, 0.5s);
 
-    div {
-        max-width: $page-width-large;
-        margin: 10px auto;
+    .contact-links {
+        margin-right: 10px;
+        margin-top: 10px;
     }
 
     .contact-links a {
         display: inline-block;
-        margin-left: 25px;
-        line-height: 3rem;
+        margin-left: 10px;
+        line-height: inherit;
         img {
             max-height: $footer-height - 20px;
             @include transition(height, 0.25s);
@@ -112,7 +118,8 @@ footer.site-footer {
     }
 
     .copyright {
-        font-size: 0.9rem;
+        margin-left: 10px;
+        line-height: inherit;
         font-family: monospace;
         color: darken($grey, 50%);
         display: inline-block;
@@ -136,74 +143,29 @@ section.body {
     margin: $topbar-height auto 0;
 }
 
-article {
-    footer, header {
-        text-align: right;
-    }
 
-    header {
-        h1 {
-            text-transform: capitalize;
-        }
-        p {
-            font-size: 0.9rem;
-        }
-    }
-
-    hr {
-        margin: 50px;
-    }
-}
-
-
-
-@media (min-width: 320px) and (max-width: 900px) {
-
-    footer.site-footer div, section.body, header.site-header div {
-        max-width: $page-width-medium;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    header.site-header {
-        height: 80px;
-        .intro {
-            display: none;
-        }
-        h1 a {
-            font-size: 75%;
-        }
-    }
+@media screen and (min-width: 900px) {
 
     section.body {
-        margin-top: 80px;
-    }
-}
-
-@media (max-width: 320px) {
-
-    footer.site-footer div, section.body, header.site-header div {
-        max-width: $page-width-small;
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-top: $topbar-height + 25px;
     }
 
     header.site-header {
-        height: 80px;
-        .intro {
-            display: none;
-        }
-        h1 a {
-            font-size: 75%;
-            &:hover {
-                font-size: 76%;
-                animation: none;
+        height: $topbar-height + 25px;
+        div.header-contents {
+
+            .intro {
+                display: block;
+                opacity: 0.8;
+                color: lighten($grey, 10%);
+
+                .hidden {
+                    color: lighten($grey, 10%);
+                    display: none;
+                    opacity: 0.8;
+                    letter-spacing: 0;
+                }
             }
         }
-
-    }
-
-    section.body {
-        margin-top: 80px;
     }
 }

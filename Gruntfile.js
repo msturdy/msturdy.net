@@ -5,8 +5,8 @@ module.exports = function(grunt) {
       uglify: {
         options: {
           banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-          //beautify: true,
-          compress: { drop_console: true }
+          beautify: true,
+          //compress: { drop_console: true }
         },
         my_target: {
           files: {
@@ -23,9 +23,9 @@ module.exports = function(grunt) {
 
       sass: {
         dist: {
-          options: {
-            outputStyle: 'compressed'
-          },
+          //options: {
+          //  outputStyle: 'compressed'
+          //},
           files: {
             'public/css/styles.css': 'styles/scss/app.scss'
           }        
