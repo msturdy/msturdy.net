@@ -12,6 +12,7 @@ module.exports = function(grunt) {
           files: {
             'public/js/app.min.js': ['javascript/vendor/events.js',
                                      'javascript/screen.js',
+                                     'javascript/tabs.js',
                                      'javascript/app.js' ],
           }
         }

@@ -1,5 +1,3 @@
-@import 'mixins';
-
 $footer-height: 50px;
 $topbar-height: 80px;
 $page-width-large: 900px;
@@ -9,6 +7,11 @@ $default-font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'L
 
 $text-colour: #181818;
 $grey: #f1f1f1;
+$blue: rgb(127, 173, 246);
+
+@import 'mixins';
+@import 'tabs';
+@import 'buttons';
 
 .right {
     float: right;
@@ -78,10 +81,9 @@ header.site-header {
             display: inline-block;
         }
     }
-
 }
 
-div.contents {
+.contents {
     max-width: $page-width-large;
     margin-left: auto;
     margin-right: auto;
@@ -156,11 +158,11 @@ section.body {
 
             .intro {
                 display: block;
-                opacity: 0.8;
-                color: lighten($grey, 10%);
+                opacity: 0.9;
+                color: lighten($grey, 5);
 
                 .hidden {
-                    color: lighten($grey, 10%);
+                    color: lighten($grey, 5);
                     display: none;
                     opacity: 0.8;
                     letter-spacing: 0;
