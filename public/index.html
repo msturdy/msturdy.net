@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>msturdy.net</title>
-  <meta charset="utf-8" />
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
         <h1><a href="/">msturdy.net</a></h1>
       </div>
       <div class="text-right">
-        <p class="intro">Web Dev: PHP(Laravel), Python, JS, <span class="reveal">CSS<span class="hidden">(3)</span></span> and <span class="reveal">HTML<span class="hidden">(5)</span></span></p>
+        <p class="intro">Web Dev: PHP(Laravel), Python, JS, CSS(3) and HTML(5)</p>
       </div>
     </div>
   </header>
@@ -22,33 +22,44 @@
   <section class="body">
     <div class="contents">
 
-      <a href="#writing" class="button tabs" data-tab-id="1">Writings</a>
-      <a href="#sites" class="button tabs" data-tab-id="2">Sites</a>
-      <a href="#music" class="button tabs" data-tab-id="3">Music</a>
+      <div class="buttons">
+        <a href="#tech" class="button tabs" data-tab-id="1">Tech</a>
+        <a href="#work" class="button tabs" data-tab-id="2">Work</a>
+        <a href="#music" class="button tabs" data-tab-id="3">Music</a>
+      </div>
 
       <ul class="tabbed">
-        <li class="active">
+        <li class="tab active">
           <div>
-            <h1>Writings and things</h1>
-            <p>This is where we will show some things about writing and all that.</p>
-            <p>This is where we will show some things about writing and all that.</p>
-            <p>This is where we will show some things about writing and all that.</p>
+            <h1>Tech</h1>
+            <p>I've got a lot of varied experience:</p>
+            <ol>
+              <li>WebDev: PHP, HTML, CSS, SCSS, Grunt</li>
+              <li>Scripting: bash, Perl, Python, JavaScript</li>
+              <li>DevOps: Linux SysAdmin, nginx, Apache, MySQL</li>
+            </ol>
           </div>
         </li>
-        <li>
+        <li class="tab">
           <div>
-            <h1>Here are some lovely sites</h1>
-            <p>This is where we will show some things about sites and all that.</p>
-            <p>This is where we will show some things about sites and all that.</p>
-            <p>This is where we will show some things about sites and all that.</p>
+            <h1>Work</h1>
+            <p>See my <a href="http://br.linkedin.com/in/msturdy">LinkedIn</a> for more information, but I have been working in various roles in telecommunications for more than 10 years - everything from sysadmin and programming to account management, customer service and project management.  I have worked in the UK, Spain and extensively in South America.  I am fluent in Portuguese and Spanish, and have worked for years in both languages. </p>
           </div>
         </li>
-        <li>
+        <li class="tab">
           <div>
-            <h1>here are some things I think about music</h1>
-            <p>This is where we will show some things about music.</p>
-            <p>This is where we will show some things about music.</p>
-            <p>This is where we will show some things about music.</p>
+            <h1>Music</h1>
+            <p>I like lots of it.  Here's a list of things I like on Spotify, have a listen.</p>
+            <div class="center">
+              <div class="hide-small">
+                <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Agreeenpeace%3Aplaylist%3A3M0oODYhjQWnBEsOURFfbV&theme=white" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>
+              </div>
+
+              <div class="hide-large">
+                <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Agreeenpeace%3Aplaylist%3A3M0oODYhjQWnBEsOURFfbV&theme=white" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+              </div>
+              
+            </div>
           </div>
         </li>
       </ul>

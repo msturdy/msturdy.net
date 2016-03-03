@@ -1,0 +1,32 @@
+
+header.site-header {
+    font-family: "Arial Narrow",Arial,sans-serif;
+    min-height: $topbar-height;
+    // position: absolute;
+    width: 100%;
+    top: 0;
+    border-bottom: 1px $grey solid;
+    // clear:both;
+    // display: block;
+
+
+    div.header-contents {
+
+        color: #000000;
+        opacity: 0.7;
+        // clear:right;
+
+        h1 a {
+            text-decoration: none;
+
+            &:visited {
+                color: inherit;
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+

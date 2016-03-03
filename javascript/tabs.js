@@ -1,12 +1,12 @@
 
 function changeTab(e) {
     var tab_id = this.getAttribute('data-tab-id') - 1,
-        tabs = document.querySelectorAll('ul.tabbed li');
+        tabs = document.querySelectorAll('ul.tabbed li.tab');
 
     for (var j = 0; j < tabs.length; j++) {
-        tabs[j].className = '';
+        tabs[j].className = tabs[j].className.replace(/ +active/, '');
     }
-    tabs[tab_id].className = 'active';
+    tabs[tab_id].className = tabs[tab_id].className + ' active';
 }
 
 var tab_anchors = document.querySelectorAll('.tabs');

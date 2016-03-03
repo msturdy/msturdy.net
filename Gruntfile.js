@@ -24,18 +24,18 @@ module.exports = function(grunt) {
 
       sass: {
         dist: {
-          //options: {
-          //  outputStyle: 'compressed'
-          //},
+          options: {
+           outputStyle: 'compressed'
+          },
           files: {
             'public/css/styles.css': 'styles/scss/app.scss'
-          }        
+          }
         }
       },
 
       watch: {
         files: ['javascript/*.js', 'Gruntfile.js', 'styles/scss/*'],
-        tasks: ['jshint', 'uglify', 'sass'] 
+        tasks: ['jshint', 'uglify', 'sass']
       },
 
     });
