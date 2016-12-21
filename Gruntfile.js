@@ -6,11 +6,12 @@ module.exports = function(grunt) {
         options: {
           banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
           //beautify: true,
-          compress: { drop_console: true }
+          //compress: { drop_console: true }
         },
         my_target: {
           files: {
-            'public/js/app.min.js': ['javascript/vendor/events.js',
+            'public/js/app.min.js': ['javascript/dom-manipulation.js',
+                                     'javascript/vendor/events.js',
                                      'javascript/screen.js',
                                      'javascript/tabs.js',
                                      'javascript/app.js' ],
